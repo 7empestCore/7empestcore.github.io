@@ -248,7 +248,11 @@
             // Create the image element
             const img = document.createElement('img');
             img.id = `artifact-image-${i + 1}`;
+<<<<<<< HEAD
             img.src = `./static/images/images/artifact-steroid-implant-t1-common.png`;  // Default image for "Steroid Implant"
+=======
+            img.src = `./Static/images/artifact-steroid-implant-t1-common.png`;  // Default image for "Steroid Implant"
+>>>>>>> 77a2bfb7127ecd603e752e68def941dba36812a8
             img.alt = 'Artifact Image';
 
             slotDiv.appendChild(select);
@@ -274,7 +278,11 @@
                 const img = document.querySelector(`#artifact-image-${select.id.split('-')[1]}`);
 
                 if (artifact !== "None") {
+<<<<<<< HEAD
                     img.src = `./static/images/images/artifact-${artifact.toLowerCase().replace(/\s+/g, '-')}-t1-common.png`;
+=======
+                    img.src = `./Static/images/artifact-${artifact.toLowerCase().replace(/\s+/g, '-')}-t1-common.png`;
+>>>>>>> 77a2bfb7127ecd603e752e68def941dba36812a8
                 } else {
                     img.src = '';  // Clear image if no artifact is selected
                 }
@@ -288,7 +296,11 @@
                 const img = document.querySelector(`#artifact-image-${this.id.split('-')[1]}`);
 
                 if (artifact !== "None") {
+<<<<<<< HEAD
                     img.src = `./static/images/images/artifact-${artifact.toLowerCase().replace(/\s+/g, '-')}-t1-common.png`;
+=======
+                    img.src = `./Static/images/artifact-${artifact.toLowerCase().replace(/\s+/g, '-')}-t1-common.png`;
+>>>>>>> 77a2bfb7127ecd603e752e68def941dba36812a8
                 } else {
                     img.src = '';  // Clear image if no artifact is selected
                 }
