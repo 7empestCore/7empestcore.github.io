@@ -105,11 +105,13 @@
         <div class="totals">
             <div id="totals-ap">AP: 0</div>
             <div id="totals-arm">ARM: 0</div>
+            <div id="totals-arm-percentage">ARM%: 0%</div>
             <div id="totals-hp">HP: 0</div>
             <div id="totals-mp">MP: 0</div>
             <div id="totals-hsp">HSP: 0</div>
             <div id="totals-sp">SP: 0</div>
             <div id="totals-mr">MR: 0</div>
+            <div id="totals-mr-percentage">MR%: 0%</div>
             <div id="totals-cc">CC: 0</div>
             <div id="totals-mcc">MCC: 0</div>
         </div>
@@ -297,6 +299,17 @@
 
         // Update totals calculation based on roll type and artifacts
         document.getElementById('recalculate').addEventListener('click', updateTotals);
+
+function calculatePercentage(value) {
+    if (value <= 0) {
+        return 0; // Avoid negative or zero division issues
+    }
+    return (1 - (260 / (value + 260))) * 100;
+}
+
+
+// Update totals calculation based on roll type and artifacts
+document.getElementById('recalculate').addEventListener('click', updateTotals);
 function updateTotals() {
     const totals = {
         "AP": parseInt(document.getElementById('manual-ap').value) || 0,
@@ -311,58 +324,66 @@ function updateTotals() {
     };
 
     const selectedRollType = document.getElementById('roll-type').value;
-
-    // Get the HP boost value
     const hpBoost = document.getElementById('hp-boost').value;
 
-// Calculate total stats
-document.querySelectorAll('.artifact-dropdown').forEach(select => {
-    const artifact = select.value;
-    if (artifact in artifactData) {
-        const artifactInfo = artifactData[artifact];
-        for (const stat in artifactInfo) {
-            let value = artifactInfo[stat];
-            if (selectedRollType === "Min") {
-                value = value;
-            } else if (selectedRollType === "Decent") {
-                if ((stat === "ARM" && value === 50) || (stat === "MR" && value === 50)) {
-                    value = 60;
-                } else {
-                    value = Math.floor(value * 1.5);
+    // Calculate total stats
+    document.querySelectorAll('.artifact-dropdown').forEach(select => {
+        const artifact = select.value;
+        if (artifact in artifactData) {
+            const artifactInfo = artifactData[artifact];
+            for (const stat in artifactInfo) {
+                let value = artifactInfo[stat];
+                if (selectedRollType === "Min") {
+                    value = value;
+                } else if (selectedRollType === "Decent") {
+                    if ((stat === "ARM" && value === 50) || (stat === "MR" && value === 50)) {
+                        value = 60;
+                    } else {
+                        value = Math.floor(value * 1.5);
+                    }
+                } else if (selectedRollType === "Max") {
+                    if (stat === "ARM" && value === 50) {
+                        value = 70;
+                    } else if (stat === "MR" && value === 50) {
+                        value = 70;
+                    } else if (stat === "ARM" && value === 30) {
+                        value = 50;
+                    } else if (stat === "MR" && value === 30) {
+                        value = 50;
+                    } else if (stat === "MR" && value === 60) {
+                        value = 100;
+                    } else if (stat === "ARM" && value === 60) {
+                        value = 100;
+                    } else {
+                        value = value * 2;
+                    }
                 }
-            } else if (selectedRollType === "Max") {
-                if (stat === "ARM" && value === 50) {
-                    value = 70;
-                } else if (stat === "MR" && value === 50) {
-                    value = 70;
-                } else if (stat === "ARM" && value === 30) {
-                    value = 50;
-                } else if (stat === "MR" && value === 30) {
-                    value = 50;
-                } else if (stat === "MR" && value === 60) {
-                    value = 100;
-                } else if (stat === "ARM" && value === 60) {
-                    value = 100;
-                } else {
-                    value = value * 2;
-                }
+                totals[stat] += value;
             }
-            totals[stat] += value;
         }
-    }
-});
+    });
 
-
-    // If the +20% HP boost is selected, increase HP by 120%
+    // Apply HP boost
     if (hpBoost === "20") {
         totals["HP"] = Math.floor(totals["HP"] * 1.2);
     }
 
-    // Display the totals
+    // Update totals display
     for (const stat in totals) {
         document.getElementById(`totals-${stat.toLowerCase()}`).textContent = `${stat}: ${totals[stat]}`;
     }
+
+    // Calculate and display percentages
+    const armPercentage = calculatePercentage(totals["ARM"]).toFixed(2);
+    const mrPercentage = calculatePercentage(totals["MR"]).toFixed(2);
+
+    document.getElementById('totals-arm-percentage').textContent = `ARM%: ${armPercentage}%`;
+    document.getElementById('totals-mr-percentage').textContent = `MR%: ${mrPercentage}%`;
 }
+
+
+
+
     </script>
 <footer style="color: magenta; text-align: left; padding: 10px; font-size: 14px;">
     <p>Made by 7empestCore</p>
