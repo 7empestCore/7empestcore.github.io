@@ -288,7 +288,7 @@
                 const img = document.querySelector(`#artifact-image-${this.id.split('-')[1]}`);
 
                 if (artifact !== "None") {
-                    img.src = `static/images/images/artifact-${artifact.toLowerCase().replace(/\s+/g, '-')}-t1-common.png`;
+                    img.src = `./static/images/images/artifact-${artifact.toLowerCase().replace(/\s+/g, '-')}-t1-common.png`;
                 } else {
                     img.src = '';  // Clear image if no artifact is selected
                 }
