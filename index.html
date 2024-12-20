@@ -13,16 +13,21 @@
   	    background-attachment: fixed;
             margin: 0;
             padding: 0;
-            font-size: 1.1em;
+            font-size: 1.2em;
 	    font-weight: bold;
-	    color: black;
+	    color: white;
+
+
+
         }
         .container {
             padding: 20px;
-            background-color: rgba(211, 211, 211, 0.5);
+            background-color: rgba(11, 11, 11, 0.5);
             max-width: 1200px;
             margin: auto;
             border-radius: 10px;
+
+
         }
         .header {
             text-align: center;
@@ -30,18 +35,23 @@
         }
         .totals {
             margin-top: 20px;
+
         }
         .totals div {
             margin-right: 20px;
+
         }
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             margin-top: 20px;
+
         }
         .artifact-container {
             text-align: center;
+	    color: blue;
+
         }
         .artifact-container img {
             width: 120px;
@@ -55,8 +65,9 @@
         .manual-inputs {
             margin-top: 20px;
             padding: 20px;
-            background-color: rgba(240, 240, 240, 0.7);
+            background-color: rgba(140, 140, 140, 0.4);
             border-radius: 10px;
+
         }
         .manual-inputs label {
             display: inline-block;
@@ -70,7 +81,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Corepunk Build Planner</h1>
+            <h1 style="font-size: 70px;">Corepunk Build Planner</h1>
 
         </div>
 
@@ -78,29 +89,27 @@
 <br>
 
         <div>
-            <label for="hp-boost">+20% HP Tank Talent: </label>
-            <select id="hp-boost">
+            <label for="hp-boost">Tank Talent Tree 2 x 10% HP Bonus: </label>
+            <select id="hp-boost" style="color: orange;">
                 <option value="None">None</option>
                 <option value="20">20% Boost</option>
             </select>
         </div>
 <br>
 
-
-
         <div>
-            <label for="roll-type">Select Roll Type: </label>
-            <select id="roll-type">
+            <label for="roll-type">Artifact Value Rolls: </label>
+            <select id="roll-type" style="color: magenta;">
                 <option value="Min">Min Roll</option>
                 <option value="Decent">Decent Roll</option>
                 <option value="Max">Max Roll</option>
             </select>
         </div>
+<br> <div>
+<label for="input-id" style="color: yellow;">Decent Roll = min stats x 1.5 Example: battle sleeve is 20 to 40 AP therefore 20 x 1.5 = 30AP</label>
 <br>
-<label for="input-id">Decent Roll = min stats x 1.5 Example: battle sleeve is 20 to 40 AP therefore 20(min) x 1.5 = 30AP</label>
-<br>
-        <button id="recalculate" style="font-size: 20px; padding: 10px 30px; height: 50px;">Calculate!</button>
-
+<button id="recalculate" style="background-color: grey; color: white; font-size: 20px; margin: 10px; padding: 10px 30px; height: 50px;">Calculate!</button>
+</div>
         <!-- Display Total Stats -->
         <div class="totals">
 
@@ -237,7 +246,7 @@
         for (let i = 0; i < 6; i++) {
             const slotDiv = document.createElement('div');
             slotDiv.classList.add('artifact-container');
-            
+
             const select = document.createElement('select');
             select.id = `artifact-${i + 1}`;
             select.classList.add('artifact-dropdown');
