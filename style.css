@@ -21,7 +21,9 @@ body {
 }
 
 .gridcontainer {
-	display:grid;
+	display: grid;
+	grid-template-columns: auto auto auto;
+  	padding: 10px;
 }
 
 
