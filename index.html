@@ -7,7 +7,7 @@
     	<title>Corepunk Build Planner</title>
 </head>
 <body>
-    <div class="container">
+   <!-- <div class="container"> -->
         <div class="header">
             <h1 style="font-size: 70px;">Corepunk Build Planner</h1>
 
@@ -49,22 +49,27 @@
             <div id="totals-arm-percentage">ARM%: 0%</div>
             <label for="totals-hp">Health Points (HP) shows the total life pool of your character</label>
             <div id="totals-hp">HP: 0</div>
-            <label for="totals-mp">Mana Points (MP) shows the total skill resource pool of your character</label>
-            <div id="totals-mp">MP: 0</div>
-            <label for="totals-hsp">Heal and Shield Power (HSP) increases the power of heals and effectiveness of shields</label>
-            <div id="totals-hsp">HSP: 0</div>
+         
 	</div>
+		
 	<div class="container">
+		<label for="totals-mp">Mana Points (MP) shows the total skill resource pool of your character</label>
+		<div id="totals-mp">MP: 0</div>
+	        <label for="totals-hsp">Heal and Shield Power (HSP) increases the power of heals and effectiveness of shields</label>
+	        <div id="totals-hsp">HSP: 0</div>
 		<label for="totals-sp">Spell Power (SP) increases the power of your skills spells and abilities</label>
-            <div id="totals-sp">SP: 0</div>
-            <label for="totals-mr">Magic Resistance (MR) increase your magical damage reduction</label>
-            <div id="totals-mr">MR: 0</div>
-            <label for="totals-mr-percentage">Magic Resistance % (MR%) Show the percentage value of your total resistances</label>
-            <div id="totals-mr-percentage">MR%: 0%</div>
-            <label for="totals-cc">Critcal Chance (CC) shows the total physical crit chance your character has</label>
-            <div id="totals-cc">CC: 0</div>
-            <label for="totals-mcc">Magic Crit Chance (MCC) shows the total magic crit chance your character has</label>
-            <div id="totals-mcc">MCC: 0</div>
+	        <div id="totals-sp">SP: 0</div>
+	        <label for="totals-mr">Magic Resistance (MR) increase your magical damage reduction</label>
+	        <div id="totals-mr">MR: 0</div>
+	</div>
+		
+	<div class="container">
+	        <label for="totals-mr-percentage">Magic Resistance % (MR%) Show the percentage value of your total resistances</label>
+	        <div id="totals-mr-percentage">MR%: 0%</div>
+	        <label for="totals-cc">Critcal Chance (CC) shows the total physical crit chance your character has</label>
+	        <div id="totals-cc">CC: 0</div>
+	        <label for="totals-mcc">Magic Crit Chance (MCC) shows the total magic crit chance your character has</label>
+	        <div id="totals-mcc">MCC: 0</div>
 	</div>
 	</div>
         </div>
@@ -97,7 +102,7 @@
             <input type="number" id="manual-mcc" value="0">
         </div>
 
-    </div>
+   <!-- </div> -->
 
     <script>
         const artifactData = {
