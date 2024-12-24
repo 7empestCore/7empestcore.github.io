@@ -121,10 +121,7 @@ width:100px;
 }
 
 .center{
-display: inline-block;
-margin:0 auto;
-width:100px;
-text-align: center:
-	left: 50%;
+max-width: fit-content;
+margin-inline: auto;
 }
 
