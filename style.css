@@ -20,6 +20,15 @@ body {
       border-radius: 10px;
 }
 
+.gridcontainer {
+	display:grid;
+      padding: 20px;
+      background-color: rgba(11, 11, 11, 0.5);
+      max-width: 1200px;
+      margin: auto;
+      border-radius: 10px;
+}
+
 
 .header {
       text-align: center;
