@@ -20,6 +20,17 @@ body {
       border-radius: 10px;
 }
 
+.containerone {
+      padding: 20px;
+      background-color: rgba(11, 11, 11, 0.5);
+      max-width: 1200px;
+      margin: auto;
+      border-radius: 10px;
+	text-align: center;
+	align-items: center;
+	justify-items: center;
+}
+
 .gridcontainer {
 	display: grid;
 	grid-template-columns: auto auto auto;
