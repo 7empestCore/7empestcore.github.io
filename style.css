@@ -10,7 +10,16 @@ body {
 	    font-weight: bold;
 	    color: white;
         }
+a {
+	font-size: 20px; /* Increase font size */
+      color: magenta; /* Change text color */
+      text-decoration: none; /* Remove underline */
+}
 
+        /* Optional: Add hover effect */
+        a:hover {
+            color: yellow; /* Change color on hover */
+}
 
 .container {
       padding: 20px;
